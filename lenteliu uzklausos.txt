@@ -1,0 +1,57 @@
+KLIENTAI 
+-- Table: public.klientai
+
+-- DROP TABLE IF EXISTS public.klientai;
+
+CREATE TABLE IF NOT EXISTS public.klientai
+(
+    kliento_id integer NOT NULL,
+    vardas character varying COLLATE pg_catalog."default",
+    pavarde character varying COLLATE pg_catalog."default",
+    el_pastas character varying COLLATE pg_catalog."default",
+    tel_numeris character varying COLLATE pg_catalog."default",
+    registracijos_data date
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.klientai
+    OWNER to postgres;
+
+PRODUKTAI
+-- Table: public.produktai
+
+-- DROP TABLE IF EXISTS public.produktai;
+
+CREATE TABLE IF NOT EXISTS public.produktai
+(
+    produkto_id integer,
+    pavadinimas character varying COLLATE pg_catalog."default",
+    aprasymas text COLLATE pg_catalog."default",
+    kaina integer,
+    likutis integer
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.produktai
+    OWNER to postgres;
+
+UZSAKYMAI
+-- Table: public.uzsakymai
+
+-- DROP TABLE IF EXISTS public.uzsakymai;
+
+CREATE TABLE IF NOT EXISTS public.uzsakymai
+(
+    uzsakymo_id integer NOT NULL,
+    kliento_id integer,
+    data date,
+    bendra_kaina integer NOT NULL,
+    uzsakytu_produktu_kiekis integer
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.uzsakymai
+    OWNER to postgres;
